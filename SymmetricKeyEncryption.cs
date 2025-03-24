@@ -30,6 +30,10 @@ namespace SymmetricKeyEncryption
 
         private void BtnConfirmType_Click(object sender, EventArgs e)
         {
+            if (CbEncType.Text == "")
+            {
+                return;
+            }
             GbConfigs.Enabled = true;
 
             if (CbEncType.Text == "DES")
@@ -40,7 +44,6 @@ namespace SymmetricKeyEncryption
             {
                 CbKeySize.Enabled = true;
             }
-            MessageBox.Show("Encryption type confirmed!");
         }
 
         private void CbEncType_SelectedIndexChanged(object sender, EventArgs e)
@@ -55,6 +58,7 @@ namespace SymmetricKeyEncryption
             switch (CbEncType.SelectedItem.ToString())
             {
                 case "DES":
+                    TxtKey.MaxLength = 8;
                     break;
 
                 case "TDES":
@@ -136,8 +140,30 @@ namespace SymmetricKeyEncryption
                 RbIVDecString.Enabled = true;
                 RbIVEncHEX.Enabled = true;
                 RbIVEncString.Enabled = true;
+
+                if (CbEncType.Text == "DES")
+                {
+                    TxtIVEncHEX.MaxLength = 16;
+                    TxtIVDecHEX.MaxLength = 16;
+                    TxtIVEncString.MaxLength = 8;
+                    TxtIVDecString.MaxLength = 8;
+                }
+                else if (CbEncType.Text == "TDES")
+                {
+                    TxtIVEncHEX.MaxLength = 16;
+                    TxtIVDecHEX.MaxLength = 16;
+                    TxtIVEncString.MaxLength = 8;
+                    TxtIVDecString.MaxLength = 8;
+                }
+                else if (CbEncType.Text == "AES")
+                {
+                    TxtIVEncHEX.MaxLength = 32;
+                    TxtIVDecHEX.MaxLength = 32;
+                    TxtIVEncString.MaxLength = 16;
+                    TxtIVDecString.MaxLength = 16;
+                }
+                MessageBox.Show("Configurations saved!");
             }
-            MessageBox.Show("Configurations saved!");
         }
 
         private void BtnClearEnc_Click(object sender, EventArgs e)
@@ -224,6 +250,7 @@ namespace SymmetricKeyEncryption
         private void BtnEncrypt_Click(object sender, EventArgs e)
         {
             IV = RbIVEncHEX.Checked ? TxtIVEncHEX.Text : TxtIVEncString.Text;
+            bool useHash = CheckHash.Checked;
             string encryptedText = string.Empty;
 
             if (CbEncType.Text == "DES")
@@ -237,6 +264,16 @@ namespace SymmetricKeyEncryption
                     MessageBox.Show("Key / Padding / Mode cannot be null or empty!");
                     return;
                 }
+                encryptedText = DESLib.DESLib.Encrypt(
+                    TxtPlain.Text,
+                    Key,
+                    IV,
+                    Padding,
+                    CbOutFormat.Text,
+                    Mode,
+                    useHash
+                );
+                TxtCipher.Text = encryptedText;
             }
             else if (CbEncType.Text == "TDES")
             {
@@ -250,6 +287,17 @@ namespace SymmetricKeyEncryption
                     MessageBox.Show("Key / Padding / Mode / Key Size cannot be null or empty!");
                     return;
                 }
+                encryptedText = TDESLib.TDESLib.Encrypt(
+                    TxtPlain.Text,
+                    Key,
+                    IV,
+                    Padding,
+                    CbOutFormat.Text,
+                    Mode,
+                    KeySize,
+                    useHash
+                );
+                TxtCipher.Text = encryptedText;
             }
             else if (CbEncType.Text == "AES")
             {
@@ -263,12 +311,25 @@ namespace SymmetricKeyEncryption
                     MessageBox.Show("Key / Padding / Mode / Key Size cannot be null or empty!");
                     return;
                 }
+                encryptedText = AESLib.AESLib.Encrypt(
+                    TxtPlain.Text,
+                    Key,
+                    IV,
+                    Padding,
+                    CbOutFormat.Text,
+                    Mode,
+                    KeySize,
+                    useHash
+                );
+                TxtCipher.Text = encryptedText;
             }
         }
 
         private void BtnDecrypt_Click(object sender, EventArgs e)
         {
             IV = RbIVDecHEX.Checked ? TxtIVDecHEX.Text : TxtIVDecString.Text;
+            bool useHash = CheckHash.Checked;
+            string encryptedText = string.Empty;
 
             if (CbEncType.Text == "DES")
             {
@@ -281,6 +342,16 @@ namespace SymmetricKeyEncryption
                     MessageBox.Show("Key / Padding / Mode cannot be null or empty!");
                     return;
                 }
+                encryptedText = DESLib.DESLib.Decrypt(
+                    TxtCipher.Text,
+                    Key,
+                    IV,
+                    Padding,
+                    CbInFormat.Text,
+                    Mode,
+                    useHash
+                );
+                TxtPlain.Text = encryptedText;
             }
             else if (CbEncType.Text == "TDES")
             {
@@ -294,6 +365,17 @@ namespace SymmetricKeyEncryption
                     MessageBox.Show("Key / Padding / Mode / Key Size cannot be null or empty!");
                     return;
                 }
+                encryptedText = TDESLib.TDESLib.Decrypt(
+                    TxtCipher.Text,
+                    Key,
+                    IV,
+                    Padding,
+                    CbInFormat.Text,
+                    Mode,
+                    KeySize,
+                    useHash
+                );
+                TxtPlain.Text = encryptedText;
             }
             else if (CbEncType.Text == "AES")
             {
@@ -307,6 +389,17 @@ namespace SymmetricKeyEncryption
                     MessageBox.Show("Key / Padding / Mode / Key Size cannot be null or empty!");
                     return;
                 }
+                encryptedText = AESLib.AESLib.Decrypt(
+                    TxtCipher.Text,
+                    Key,
+                    IV,
+                    Padding,
+                    CbInFormat.Text,
+                    Mode,
+                    KeySize,
+                    useHash
+                );
+                TxtPlain.Text = encryptedText;
             }
         }
     }

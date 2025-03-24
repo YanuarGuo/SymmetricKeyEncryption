@@ -156,6 +156,7 @@
             // TxtKey
             // 
             TxtKey.Location = new Point(74, 66);
+            TxtKey.MaxLength = 32;
             TxtKey.Name = "TxtKey";
             TxtKey.Size = new Size(401, 23);
             TxtKey.TabIndex = 6;
@@ -273,21 +274,21 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Calibri", 8.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label9.Location = new Point(157, 197);
+            label9.Location = new Point(205, 197);
             label9.Name = "label9";
-            label9.Size = new Size(73, 13);
+            label9.Size = new Size(25, 13);
             label9.TabIndex = 17;
-            label9.Text = "HEX (32 Chars)";
+            label9.Text = "HEX";
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Calibri", 8.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label8.Location = new Point(147, 240);
+            label8.Location = new Point(195, 240);
             label8.Name = "label8";
-            label8.Size = new Size(83, 13);
+            label8.Size = new Size(35, 13);
             label8.TabIndex = 16;
-            label8.Text = "String (16 Chars)";
+            label8.Text = "String";
             // 
             // TxtIVEncString
             // 
@@ -416,21 +417,21 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Calibri", 8.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label12.Location = new Point(157, 197);
+            label12.Location = new Point(205, 197);
             label12.Name = "label12";
-            label12.Size = new Size(73, 13);
+            label12.Size = new Size(25, 13);
             label12.TabIndex = 17;
-            label12.Text = "HEX (32 Chars)";
+            label12.Text = "HEX";
             // 
             // label13
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Calibri", 8.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label13.Location = new Point(147, 240);
+            label13.Location = new Point(195, 240);
             label13.Name = "label13";
-            label13.Size = new Size(83, 13);
+            label13.Size = new Size(35, 13);
             label13.TabIndex = 16;
-            label13.Text = "String (16 Chars)";
+            label13.Text = "String";
             // 
             // TxtIVDecString
             // 
