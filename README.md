@@ -19,7 +19,7 @@ A Windows Forms application for symmetric key encryption and decryption using DE
 ## Installation
 1. Clone the repository:
    ```sh
-   git clone https://github.com/YOUR_GITHUB_USERNAME/SymmetricKeyEncryption.git
+   git clone https://github.com/YanuarGuo/SymmetricKeyEncryption.git
    ```
 2. Open the project in Visual Studio.
 3. Ensure the required DLLs (**AESLib.dll, DESLib.dll, TDESLib.dll**) are present in the project directory.
