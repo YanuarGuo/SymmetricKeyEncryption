@@ -1,4 +1,4 @@
-# Symmetric Key Encryption & Decryption Tool
+# Symmetric Key Encryption
 
 A Windows Forms application for symmetric key encryption and decryption using DES, TDES, and AES algorithms.
 
@@ -11,18 +11,19 @@ A Windows Forms application for symmetric key encryption and decryption using DE
 - Clear and reset functionality for easy testing.
 
 ## Technologies Used
-- **C#** (.NET Framework 8.0 or higher)
+- **C#** (.NET Framework)
 - **Windows Forms (WinForms)**
-- **AESLib, DESLib, TDESLib** for cryptographic operations.
+- **AESLib, DESLib, TDESLib** DLLs for cryptographic operations.
 - **PC/SC API** (if used for smart card integration in the future).
 
 ## Installation
 1. Clone the repository:
    ```sh
-   git clone https://github.com/YanuarGuo/SymmetricKeyEncryption.git
+   git clone https://github.com/YOUR_GITHUB_USERNAME/SymmetricKeyEncryption.git
    ```
 2. Open the project in Visual Studio.
-3. Build the solution and run the application.
+3. Ensure the required DLLs (**AESLib.dll, DESLib.dll, TDESLib.dll**) are present in the project directory.
+4. Build the solution and run the application.
 
 ## Usage
 1. Select the encryption type (DES, TDES, AES).
@@ -39,5 +40,3 @@ A Windows Forms application for symmetric key encryption and decryption using DE
 
 ## Author
 Developed by Yanuar Christy Ade Utama.
-
-
