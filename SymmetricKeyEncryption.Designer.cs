@@ -264,7 +264,7 @@
             // 
             CbOutFormat.DropDownStyle = ComboBoxStyle.DropDownList;
             CbOutFormat.FormattingEnabled = true;
-            CbOutFormat.Items.AddRange(new object[] { "HEX", "Base64" });
+            CbOutFormat.Items.AddRange(new object[] { "Base64", "HEX" });
             CbOutFormat.Location = new Point(13, 308);
             CbOutFormat.Name = "CbOutFormat";
             CbOutFormat.Size = new Size(217, 23);
@@ -407,7 +407,7 @@
             // 
             CbInFormat.DropDownStyle = ComboBoxStyle.DropDownList;
             CbInFormat.FormattingEnabled = true;
-            CbInFormat.Items.AddRange(new object[] { "HEX", "Base64" });
+            CbInFormat.Items.AddRange(new object[] { "Base64", "HEX" });
             CbInFormat.Location = new Point(13, 308);
             CbInFormat.Name = "CbInFormat";
             CbInFormat.Size = new Size(217, 23);

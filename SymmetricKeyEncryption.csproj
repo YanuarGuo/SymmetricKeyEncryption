@@ -12,12 +12,25 @@
     <Reference Include="AESLib">
       <HintPath>..\AESLib\bin\Debug\net8.0\AESLib.dll</HintPath>
     </Reference>
+    <Reference Include="BouncyCastleAESLib">
+      <HintPath>..\BouncyCastleAESLib\bin\Debug\net8.0\BouncyCastleAESLib.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastleDESLib">
+      <HintPath>..\BouncyCastleDESLib\bin\Debug\net8.0\BouncyCastleDESLib.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastleTDESLib">
+      <HintPath>..\BouncyCastleTDESLib\bin\Debug\net8.0\BouncyCastleTDESLib.dll</HintPath>
+    </Reference>
     <Reference Include="DESLib">
       <HintPath>..\DESLib\bin\Debug\net8.0\DESLib.dll</HintPath>
     </Reference>
     <Reference Include="TDESLib">
       <HintPath>..\TDESLib\bin\Debug\net8.0\TDESLib.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BouncyCastle.Cryptography" Version="2.5.0" />
   </ItemGroup>
 
 </Project>

@@ -5,7 +5,14 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 using AESLib;
-using DESLib;
+using BouncyCastleAESLib;
+using BouncyCastleDESLib;
+using BouncyCastleTDESLib;
+using Org.BouncyCastle.Crypto;
+using Org.BouncyCastle.Crypto.Engines;
+using Org.BouncyCastle.Crypto.Modes;
+using Org.BouncyCastle.Crypto.Paddings;
+using Org.BouncyCastle.Crypto.Parameters;
 using TDESLib;
 
 namespace SymmetricKeyEncryption
@@ -264,7 +271,7 @@ namespace SymmetricKeyEncryption
                     MessageBox.Show("Key / Padding / Mode cannot be null or empty!");
                     return;
                 }
-                encryptedText = DESLib.DESLib.Encrypt(
+                encryptedText = BouncyCastleDESLib.BouncyCastleDESLib.Encrypt(
                     TxtPlain.Text,
                     Key,
                     IV,
@@ -287,7 +294,7 @@ namespace SymmetricKeyEncryption
                     MessageBox.Show("Key / Padding / Mode / Key Size cannot be null or empty!");
                     return;
                 }
-                encryptedText = TDESLib.TDESLib.Encrypt(
+                encryptedText = BouncyCastleTDESLib.BouncyCastleTDESLib.Encrypt(
                     TxtPlain.Text,
                     Key,
                     IV,
@@ -311,7 +318,7 @@ namespace SymmetricKeyEncryption
                     MessageBox.Show("Key / Padding / Mode / Key Size cannot be null or empty!");
                     return;
                 }
-                encryptedText = AESLib.AESLib.Encrypt(
+                encryptedText = BouncyCastleAESLib.BouncyCastleAESLib.Encrypt(
                     TxtPlain.Text,
                     Key,
                     IV,
@@ -342,7 +349,7 @@ namespace SymmetricKeyEncryption
                     MessageBox.Show("Key / Padding / Mode cannot be null or empty!");
                     return;
                 }
-                encryptedText = DESLib.DESLib.Decrypt(
+                encryptedText = BouncyCastleDESLib.BouncyCastleDESLib.Decrypt(
                     TxtCipher.Text,
                     Key,
                     IV,
@@ -365,7 +372,7 @@ namespace SymmetricKeyEncryption
                     MessageBox.Show("Key / Padding / Mode / Key Size cannot be null or empty!");
                     return;
                 }
-                encryptedText = TDESLib.TDESLib.Decrypt(
+                encryptedText = BouncyCastleTDESLib.BouncyCastleTDESLib.Decrypt(
                     TxtCipher.Text,
                     Key,
                     IV,
@@ -389,7 +396,7 @@ namespace SymmetricKeyEncryption
                     MessageBox.Show("Key / Padding / Mode / Key Size cannot be null or empty!");
                     return;
                 }
-                encryptedText = AESLib.AESLib.Decrypt(
+                encryptedText = BouncyCastleAESLib.BouncyCastleAESLib.Decrypt(
                     TxtCipher.Text,
                     Key,
                     IV,
